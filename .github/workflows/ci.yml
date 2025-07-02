@@ -20,11 +20,16 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd src
+          npm install
 
-      - name: Run basic Node.js syntax check
-        run: node -c src/server.js
+      - name: Run syntax check
+        run: |
+          cd src
+          node -c server.js
 
       - name: Run tests (if available)
         run: npm test
         continue-on-error: true
+
